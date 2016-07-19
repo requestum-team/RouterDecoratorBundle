@@ -24,5 +24,8 @@ class RequestumRouterDecorationExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $mapperDefinition = $container->findDefinition('parameters_mapper');
+        $mapperDefinition->replaceArgument(0, $config['parameters_mapper']['map']);
     }
 }

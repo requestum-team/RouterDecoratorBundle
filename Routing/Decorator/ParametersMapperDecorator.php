@@ -1,28 +1,21 @@
 <?php
 
-namespace Requestum\RouterDecorationBundle\Utils\Routing\Decorator;
+namespace Requestum\RouterDecorationBundle\Routing\Decorator;
 
+use Requestum\RouterDecorationBundle\Routing\AbstractRouterDecorator;
 use Requestum\RouterDecorationBundle\Utils\ParametersMapper\ParametersMapper;
-use Stavichenko\RouterMapperBundle\Routing\AbstractRouterDecorator;
 use Symfony\Bundle\FrameworkBundle\Routing\Router as BaseRouter;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\RouterInterface;
 
 class ParametersMapperDecorator extends AbstractRouterDecorator
 {
-    /**
-     * @var RouterInterface
-     */
-    protected $decorated;
-
     /**
      * @var ParametersMapper
      */
     protected $parametersMapper;
 
-    public function __construct(BaseRouter $decorated, ParametersMapper $parametersMapper)
+    public function __construct(ParametersMapper $parametersMapper)
     {
-        $this->decorated = $decorated;
         $this->parametersMapper = $parametersMapper;
 
     }

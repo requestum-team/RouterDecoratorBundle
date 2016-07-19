@@ -1,3 +1,0 @@
-requestum_router_decoration_homepage:
-    path:     /
-    defaults: { _controller: RequestumRouterDecorationBundle:Default:index }

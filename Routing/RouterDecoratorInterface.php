@@ -1,6 +1,6 @@
 <?php
 
-namespace Requestum\RouterDecorationBundle\Utils\Routing;
+namespace Requestum\RouterDecorationBundle\Routing;
 
 
 use Symfony\Component\HttpKernel\CacheWarmer\WarmableInterface;

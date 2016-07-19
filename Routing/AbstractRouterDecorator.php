@@ -1,6 +1,6 @@
 <?php
 
-namespace Requestum\RouterDecorationBundle\Utils\Routing;
+namespace Requestum\RouterDecorationBundle\Routing;
 
 use Symfony\Bundle\FrameworkBundle\Routing\Router as BaseRouter;
 use Symfony\Component\HttpFoundation\Request;

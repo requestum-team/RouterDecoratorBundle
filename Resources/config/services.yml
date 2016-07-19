@@ -2,3 +2,11 @@ services:
 #    requestum_router_decoration.example:
 #        class: Requestum\RouterDecorationBundle\Example
 #        arguments: ["@service_id", "plain_value", %parameter%]
+    parameters_mapper:
+        class: Requestum\RouterDecorationBundle\Utils\ParametersMapper\ParametersMapper
+
+    parameters_mapper_router:
+        class: Requestum\RouterDecorationBundle\Utils\Routing\Decorator\ParametersMapperDecorator
+        arguments: ['@parameters_mapper']
+        tags:
+            - { name: requestum.router_decorator }
