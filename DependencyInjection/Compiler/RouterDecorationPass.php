@@ -16,12 +16,17 @@ class RouterDecorationPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        $taggedServices = $container->findTaggedServiceIds(
-            'requestum.router_decorator'
-        );
+        $taggedServices = $container->findTaggedServiceIds('requestum.router_decorator');
 
         foreach ($taggedServices as $id => $tags) {
-             
+            $baseRouterDefinition = $container->findDefinition('router');
+            $container->removeDefinition('router');
+            $decoratorDefinition = $container->findDefinition($id);
+            $container->setDefinition('router', $decoratorDefinition);
+            $decoratorDefinition->addMethodCall(
+                'setDecorated',
+                $baseRouterDefinition
+            );
         }
     }
 }
