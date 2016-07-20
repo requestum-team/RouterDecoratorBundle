@@ -6,7 +6,7 @@ services:
         class: Requestum\RouterDecorationBundle\Utils\ParametersMapper\ParametersMapper
 
     parameters_mapper_router:
-        class: Requestum\RouterDecorationBundle\Utils\Routing\Decorator\ParametersMapperDecorator
+        class: Requestum\RouterDecorationBundle\Routing\Decorator\ParametersMapperDecorator
         arguments: ['@parameters_mapper']
         tags:
             - { name: requestum.router_decorator }

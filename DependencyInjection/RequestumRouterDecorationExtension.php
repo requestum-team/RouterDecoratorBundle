@@ -26,6 +26,6 @@ class RequestumRouterDecorationExtension extends Extension
         $loader->load('services.yml');
 
         $mapperDefinition = $container->findDefinition('parameters_mapper');
-        $mapperDefinition->replaceArgument(0, $config['parameters_mapper']['map']);
+        $mapperDefinition->addArgument($config['parameters_mapper']['map']);
     }
 }

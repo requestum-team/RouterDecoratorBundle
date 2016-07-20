@@ -2,6 +2,7 @@
 
 namespace Requestum\RouterDecorationBundle;
 
+use Requestum\RouterDecorationBundle\DependencyInjection\Compiler\RouterDecorationPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -11,6 +12,6 @@ class RequestumRouterDecorationBundle extends Bundle
     {
         parent::build($container);
 
-        $container->addCompilerPass(new CustomPass());
+        $container->addCompilerPass(new RouterDecorationPass());
     }
 }

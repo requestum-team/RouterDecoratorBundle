@@ -25,7 +25,7 @@ class RouterDecorationPass implements CompilerPassInterface
             $container->setDefinition('router', $decoratorDefinition);
             $decoratorDefinition->addMethodCall(
                 'setDecorated',
-                $baseRouterDefinition
+                [$baseRouterDefinition]
             );
         }
     }

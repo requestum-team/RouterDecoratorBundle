@@ -19,7 +19,20 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('requestum_router_decoration');
-        
+        $rootNode
+            ->children()
+                ->arrayNode('parameters_mapper')
+                    ->children()
+                        ->arrayNode('map')
+                            ->prototype('array')
+                                ->prototype('array')
+                                    ->prototype('scalar')->end()
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
