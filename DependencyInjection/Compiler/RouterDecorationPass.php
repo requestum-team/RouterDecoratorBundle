@@ -3,7 +3,6 @@
 namespace Requestum\RouterDecorationBundle\DependencyInjection\Compiler;
 
 
-use Requestum\RouterDecorationBundle\Exceptions\NotAllowedDecoratorException;
 use Requestum\RouterDecorationBundle\Routing\RouterDecoratorInterface;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,7 +14,7 @@ class RouterDecorationPass implements CompilerPassInterface
      * You can modify the container here before it is dumped to PHP code.
      *
      * @param ContainerBuilder $container
-     * @throws NotAllowedDecoratorException
+     * @throws \InvalidArgumentException
      */
     public function process(ContainerBuilder $container)
     {
@@ -26,7 +25,7 @@ class RouterDecorationPass implements CompilerPassInterface
             $container->removeDefinition('router');
             $decoratorDefinition = $container->findDefinition($id);
             if (!is_a($decoratorDefinition->getClass(), RouterDecoratorInterface::class, true)) {
-                throw new NotAllowedDecoratorException(
+                throw new \InvalidArgumentException(
                     "Service {$id} is not implementation of " . RouterDecoratorInterface::class
                 );
             }
