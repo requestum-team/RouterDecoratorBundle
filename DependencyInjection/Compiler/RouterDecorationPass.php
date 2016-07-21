@@ -25,7 +25,7 @@ class RouterDecorationPass implements CompilerPassInterface
             $baseRouterDefinition = $container->findDefinition('router');
             $container->removeDefinition('router');
             $decoratorDefinition = $container->findDefinition($id);
-            if (!$this->isServiceInstanceOfInterface($decoratorDefinition->getClass(), RouterDecoratorInterface::class)) {
+            if (!is_a($decoratorDefinition->getClass(), RouterDecoratorInterface::class, true)) {
                 throw new NotAllowedDecoratorException(
                     "Service {$id} is not implementation of " . RouterDecoratorInterface::class
                 );
@@ -36,11 +36,5 @@ class RouterDecorationPass implements CompilerPassInterface
                 [$baseRouterDefinition]
             );
         }
-    }
-
-    private function isServiceInstanceOfInterface($className, $interfaceName)
-    {
-        $interfacesList = class_implements($className);
-        return $interfacesList && in_array($interfaceName, $interfacesList);
     }
 }
