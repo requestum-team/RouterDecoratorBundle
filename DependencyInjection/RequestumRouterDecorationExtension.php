@@ -2,8 +2,12 @@
 
 namespace Requestum\RouterDecorationBundle\DependencyInjection;
 
+use Requestum\RouterDecorationBundle\Utils\ParametersMapper\MaskStrategy;
+use Requestum\RouterDecorationBundle\Utils\ParametersMapper\RegexpStrategy;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
@@ -22,10 +26,24 @@ class RequestumRouterDecorationExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
         $mapperDefinition = $container->findDefinition('parameters_mapper');
         $mapperDefinition->addArgument($config['parameters_mapper']['map']);
+        switch ($config['parameters_mapper']['pattern']) {
+            case 'mask':
+                $container->setDefinition('parameters_mapper_strategy', new Definition(MaskStrategy::class));
+                $mapperDefinition->addArgument(new Reference('parameters_mapper_strategy'));
+                break;
+            case 'regexp':
+                $container->setDefinition('parameters_mapper_strategy', new Definition(RegexpStrategy::class));
+                $mapperDefinition->addArgument(new Reference('parameters_mapper_strategy'));
+                break;
+            default:
+                $container->setDefinition('parameters_mapper_strategy', new Definition(RegexpStrategy::class));
+                $mapperDefinition->addArgument(new Reference('parameters_mapper_strategy'));
+                break;
+        }
     }
 }

@@ -30,6 +30,9 @@ class Configuration implements ConfigurationInterface
                                 ->end()
                             ->end()
                         ->end()
+                        ->enumNode('pattern')
+                            ->values(array('mask', 'regexp'))
+                        ->end()
                     ->end()
                 ->end()
             ->end();

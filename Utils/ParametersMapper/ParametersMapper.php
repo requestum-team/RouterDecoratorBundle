@@ -4,9 +4,15 @@ namespace Requestum\RouterDecorationBundle\Utils\ParametersMapper;
 
 class ParametersMapper
 {
-    public function __construct(array $config)
+    /**
+     * @var PatternStrategy
+     */
+    private $strategy;
+
+    public function __construct(array $config, PatternStrategy $strategy)
     {
         $this->config = $config;
+        $this->strategy = $strategy;
     }
 
     public function hasMapping($route)
@@ -59,6 +65,6 @@ class ParametersMapper
      */
     protected function createRegexp($mask)
     {
-        return $mask;
+        return $this->strategy->createRegexp($mask);
     }
 } 
