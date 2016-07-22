@@ -75,3 +75,5 @@ If you using pattern `regexp`, you only need write some regular expression like 
 **Advanced:**
 -------------
 
+If you want to define some custom decorator for parameter mapping, you only need define you own service and taged them 
+by `requestum.router_decorator` tag, but your own service must extend `AbstractRouterDecorator`.
