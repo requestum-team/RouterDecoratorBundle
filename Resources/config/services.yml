@@ -10,3 +10,9 @@ services:
         arguments: ['@parameters_mapper']
         tags:
             - { name: requestum.router_decorator }
+
+    parameters_mapper.strategy.mask:
+        class: Requestum\RouterDecorationBundle\Utils\ParametersMapper\MaskStrategy
+
+    parameters_mapper.strategy.regexp:
+            class: Requestum\RouterDecorationBundle\Utils\ParametersMapper\RegexpStrategy

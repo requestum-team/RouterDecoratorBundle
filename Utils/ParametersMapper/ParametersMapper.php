@@ -5,11 +5,11 @@ namespace Requestum\RouterDecorationBundle\Utils\ParametersMapper;
 class ParametersMapper
 {
     /**
-     * @var PatternStrategy
+     * @var PatternStrategyInterface
      */
     private $strategy;
 
-    public function __construct(array $config, PatternStrategy $strategy)
+    public function __construct(array $config, PatternStrategyInterface $strategy)
     {
         $this->config = $config;
         $this->strategy = $strategy;

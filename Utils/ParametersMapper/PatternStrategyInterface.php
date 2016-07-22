@@ -3,7 +3,7 @@
 namespace Requestum\RouterDecorationBundle\Utils\ParametersMapper;
 
 
-interface PatternStrategy
+interface PatternStrategyInterface
 {
     public function createRegexp($data);
 }
