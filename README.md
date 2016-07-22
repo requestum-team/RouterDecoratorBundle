@@ -11,6 +11,28 @@ Bundle provides the ability to automatically replace the router parameters value
 Via Composer
 
     composer require requestum/router-decoration-bundle
+    
+Add `new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()` to you `app/AppKernel.php`.
+    
+    <?php
+    // app/AppKernel.php
+    
+    // ...
+    class AppKernel extends Kernel
+    {
+        public function registerBundles()
+        {
+            $bundles = array(
+                // ...
+    
+                new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            );
+    
+            // ...
+        }
+    
+        // ...
+    }
 
 **Configuration:**
 ------------------
