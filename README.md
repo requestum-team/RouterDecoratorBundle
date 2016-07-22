@@ -3,6 +3,8 @@ requestum/router-decoration-bundle
 
 A Symfony Bundle created on July 19, 2016, 3:27 pm.
 
+Bundle provides the ability to automatically replace the router parameters values to predefined system values.
+
 **Installation:**
 -----------------
 
@@ -41,29 +43,35 @@ If you using pattern `mask`, you must follow this example:
     ...
         pattern: mask
         map:
-              #Routes 'route_name_' that has any sufix
+              #Route names 'route_name_' that has any sufix
               route_name_*:
-                    param1:
-                          routeValue1: systemValue1
-                          ...
-                          routeValueN: systemValueN
                     ...
-                    paramN
               
-              #Routes 'route_name_' that has any prefix
+              #Route names 'route_name_' that has any prefix
               *_route_name:
-                    param1:
-                          routeValue1: systemValue1
-                          ...
-                          routeValueN: systemValueN
                     ...
-                    paramN
                     
-              #Routes that has 'route_' prefix and '_name' sufix                    
+              #Route names that has 'route_' prefix and '_name' sufix                    
               route_*_name:
-                    param1:
-                          routeValue1: systemValue1
-                          ...
-                          routeValueN: systemValueN
                     ...
-                    paramN
+                    
+If you using pattern `regexp`, you only need write some regular expression like this:
+
+    ...
+        pattern: regexp
+        map:
+              #Route names 'route_name_' that has any sufix
+              /route_name_.*/:
+                    ...
+              
+              #Route names 'route_name_' that has any prefix
+              /.*_route_name/:
+                    ...
+                    
+              #Route names that has 'route_' prefix and '_name' sufix                    
+              /route_.*_name/:
+                    ...
+                    
+**Advanced:**
+-------------
+
