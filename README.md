@@ -77,3 +77,6 @@ If you using pattern `regexp`, you only need write some regular expression like 
 
 If you want to define some custom decorator for parameter mapping, you only need define you own service and taged them 
 by `requestum.router_decorator` tag, but your own service must extend `AbstractRouterDecorator`.
+
+If you want use your own mapping strategy, you only need to define new service and type them identifier in `pattern` 
+option, but your own strategy must implements `PatternStrategyInterface`.
