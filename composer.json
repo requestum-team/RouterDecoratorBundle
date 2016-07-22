@@ -1,0 +1,23 @@
+{
+    "name": "requestum/router-decoration-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony RequestumRouterDecorationBundle",
+    "keywords": ["Router"],
+    "authors": [
+        {
+            "name": "Sergey Stavichenko"
+        },
+        {
+            "name": "Artem Lopata"
+        },
+        {
+            "name": "Alexey Bychek"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Requestum\\RouterDecorationBundle\\": "" }
+    },
+    "require": {
+        "symfony/routing": "^3.1"
+    }
+}
