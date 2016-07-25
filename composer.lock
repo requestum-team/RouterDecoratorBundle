@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "67f1e7e8e16facd38abe917fd32a91bb",
-    "content-hash": "9d17bb4b87f6c46c7bc523c2d452bdb3",
+    "hash": "b31e8d19c96d6310ad00405300230a7e",
+    "content-hash": "2bb99ec4dae2ffa18b8a5205c69b1485",
     "packages": [
         {
             "name": "symfony/routing",
