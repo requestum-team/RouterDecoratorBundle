@@ -12,7 +12,7 @@ Via Composer
 
     composer require requestum/router-decoration-bundle
     
-Add `new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()` to you `app/AppKernel.php`.
+Add `new Requestum\RouterDecorationBundle\RequestumRouterDecorationBundle()` to you `app/AppKernel.php`.
     
     <?php
     // app/AppKernel.php
@@ -25,7 +25,7 @@ Add `new Doctrine\Bundle\DoctrineBundle\DoctrineBundle()` to you `app/AppKernel.
             $bundles = array(
                 // ...
     
-                new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+                new Requestum\RouterDecorationBundle\RequestumRouterDecorationBundle(),
             );
     
             // ...
